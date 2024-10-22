@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 //TODO: fake test from CI
 void main() {
   group('Calculator', () {
