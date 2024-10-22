@@ -1,0 +1,40 @@
+name: Flutter Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 11
+          cache: 'gradle'
+
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v3
+        with:
+          channel: stable
+          version: 3.22.2
+          cache: true
+
+      - run: flutter --version
+      - run: flutter clean
+      - run: rm -Rf pubspec.lock
+      - run: flutter pub get
+      - run: flutter test
+      # - run: flutter analyze
+
+      # New upload artifact step if you want to keep artifacts
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: flutter-test-results
+          path: test-output/
