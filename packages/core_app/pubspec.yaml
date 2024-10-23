@@ -11,8 +11,12 @@ dependencies:
     sdk: flutter
   logger: 1.4.0
   ### Optimization request server
-  async: 2.11.0
-  pool: 1.5.1
+  # async: 2.11.0
+  # pool: 1.5.1
+  rxdart: 0.28.0
+  ## Database 
+  shared_preferences: 2.3.2
+
 
 dev_dependencies:
   flutter_test:
