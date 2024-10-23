@@ -1,5 +1,5 @@
 name: app_rickandmorty
-description: "2024. Nikitos - Big project Big problem"
+description: "2024. Nikitos - (c) Big project Big problem"
 publish_to: 'none' 
 
 version: 1.0.0+1
@@ -20,8 +20,8 @@ dependencies:
     path: packages/models_app
   
   app_runner: 2.2.2
+  logger: 1.4.0
   # rxdart: 0.28.0
-  # provider: 6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -32,8 +32,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/icons/
 
 
 # [✓] Flutter (Channel stable, 3.22.2, on macOS 15.0.1 24A348 darwin-arm64,
