@@ -10,8 +10,8 @@
 
 
 <p align="center">
-    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/character_success_load_list.png" width="32%"/>
-    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/character_success_load_list.png" width="32%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/characters_loader_image_list.png" width="32%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/characters_shimmer.png" width="32%"/>
     <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/character_success_load_list.png" width="32%"/>
 </p> 
 
