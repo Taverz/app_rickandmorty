@@ -100,9 +100,9 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
   - * Ошибка списка - обновление списка
   - * Успешный список
 - ElementListWidget:
-  - * Загрузка списка
-  - * Ошибка списка
-  - * Успешный список
+  - * Загрузка
+  - * Ошибка
+  - * Успешно
 - ! Debounce/Sequence... для нескольких обновлений списка
 - Данные:
   - * Репозиторий - Логика = Logger, Benchmark
@@ -110,9 +110,9 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 
 ### InfoScreen
 - ImageWidget:
-  - * Загрузка списка
-  - * Ошибка списка
-  - * Успешный список
+  - * Загрузка
+  - * Ошибка
+  - * Успешно
 - DescriptionWidget:
   - * Загрузка списка
   - * Ошибка списка
