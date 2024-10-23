@@ -1,6 +1,7 @@
 library models_app;
 
 export 'src/models/characters/character.dart';
+export 'src/exception/api_exception.dart';
 
 /// A Calculator.
 class Calculator {
