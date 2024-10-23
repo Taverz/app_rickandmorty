@@ -63,16 +63,8 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 
 ## 🔥 Описание и запуск проекта / документация:
 
-- Версия Flutter: `2.x.x`
+- Версия Flutter: `3.2.2`
 - Запуск тестов: `flutter test`
-- Скрипты: 
-    - [x] MobX
-    - [x] RefreshList
-    - [x] AppRunner
-    - [x] theme
-    - [x] textStyle
-    - [ ] analyzer
-    - [x] packages
 
 #### Четкая и спланированная работа.
 ##### GitFlow
@@ -87,6 +79,15 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 - Git Work
 
 ## Структура приложения:
+
+- Что есть в проекте: 
+    - [x] MobX
+    - [x] RefreshList
+    - [x] AppRunner
+    - [x] theme
+    - [x] textStyle
+    - [ ] analyzer
+    - [x] packages
 
 ### SplashScreen
 - Загрузка данных из локального хранилища
