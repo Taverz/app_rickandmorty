@@ -20,7 +20,7 @@ class AppInit extends StatelessWidget {
       stream: envManager.stateStream,
       builder: (context, _) {
         final state = envManager.currentState;
-        final navigatorApp = globalData.appRouter;
+        final navigatorApp = GlobalData.appRouter;
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           behavior: HitTestBehavior.translucent,
@@ -30,6 +30,7 @@ class AppInit extends StatelessWidget {
               themeMode: state.themeMode,
               locale: state.locale.get,
               theme: createWhiteTheme(),
+              darkTheme: createWhiteTheme(),
               navigatorKey: navigatorApp.navigatorKey,
               onGenerateRoute: (settings) {
                 return navigatorApp.createRoute(

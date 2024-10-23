@@ -1,5 +1,7 @@
 library models_app;
 
+export 'src/models/characters/character.dart';
+
 /// A Calculator.
 class Calculator {
   /// Returns [value] plus 1.

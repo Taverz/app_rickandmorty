@@ -1,6 +1,7 @@
 name: client_rickandmorty
 description: "A new Flutter package project."
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -12,6 +13,8 @@ dependencies:
 
   dio: 5.4.0
   pretty_dio_logger: 1.3.1
+  models_app:
+    path: ../models_app
 
 dev_dependencies:
   flutter_test:

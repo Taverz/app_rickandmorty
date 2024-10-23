@@ -7,15 +7,17 @@ import 'package:ui_kit_app/ui_kit_app.dart';
 
 class CharacterCard {
   static Widget active({
-    required void Function() onTapLike,
+    required void Function(bool) onTapLike,
     required String urlImage,
     required String textDescription,
+    required bool liked,
     Key? key,
   }) =>
       _CharacterCard(
         urlImage: urlImage,
         textDescription: textDescription,
         onTapLike: onTapLike,
+        liked: liked,
         key: key ?? UniqueKey(),
       );
   static Widget inactive({
@@ -26,7 +28,7 @@ class CharacterCard {
       _CharacterCard(
         urlImage: urlImage,
         textDescription: textDescription,
-        onTapLike: () {},
+        onTapLike: (_) {},
         active: false,
         key: key,
       );
@@ -42,13 +44,15 @@ class CharacterCard {
 class _CharacterCard extends StatefulWidget {
   final String urlImage;
   final bool active;
+  final bool liked;
   final String textDescription;
-  final void Function() onTapLike;
+  final void Function(bool) onTapLike;
   const _CharacterCard({
     required this.urlImage,
     required this.textDescription,
     required this.onTapLike,
     this.active = true,
+    this.liked = false,
     super.key,
   });
 
@@ -62,7 +66,7 @@ class _CharacterCardState extends State<_CharacterCard>
 
   /// Так как это элемент списка с состоянием нам нужно сохранить при прокрутке списка это состояние
   @override
-  bool get wantKeepAlive => false;
+  bool get wantKeepAlive => true;
 
   late final Debounced _debounced;
 
@@ -83,6 +87,7 @@ class _CharacterCardState extends State<_CharacterCard>
       ),
     );
     _debounced = Debounced(milliseconds: 120);
+    _like = widget.liked;
   }
 
   @override
@@ -96,7 +101,7 @@ class _CharacterCardState extends State<_CharacterCard>
     _debounced.run(() {
       setState(() {
         _like = !_like;
-        widget.onTapLike();
+        widget.onTapLike(_like);
       });
       _controller.forward().then((_) {
         _controller.reverse();
@@ -226,7 +231,10 @@ class BuildContent extends StatelessWidget {
                         vertical: 3,
                         horizontal: 15,
                       ),
-                      child: childTextWidget,
+                      child: SizedBox(
+                        width: 140,
+                        child: childTextWidget,
+                      ),
                     ),
                   ],
                 ),
