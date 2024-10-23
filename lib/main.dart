@@ -36,13 +36,13 @@ void main() {
           case ConnectionState.none:
           case ConnectionState.active:
           case ConnectionState.waiting:
-            child = const LaunchApp(); // show Splash
+            child = const SplashScreenApp(); // show Splash
             continue display;
           case ConnectionState.done:
             final data = snapshot.data; // data from preInitialize
             if (data == null) {
-              child = const LaunchApp(
-                  // text: 'Error launch config app',
+              child = const SplashScreenApp(
+                  errorMessage: 'Error launch config app',
                   );
               continue display;
             }

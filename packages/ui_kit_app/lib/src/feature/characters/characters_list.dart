@@ -17,15 +17,15 @@ class CharactersList extends StatelessWidget {
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.70, 
-          // crossAxisSpacing: 2, 
-          // mainAxisSpacing: 2, 
+          childAspectRatio: 0.70,
+          // crossAxisSpacing: 2,
+          // mainAxisSpacing: 2,
           crossAxisSpacing: 2,
           mainAxisSpacing: 2,
         ),
         itemCount: list.length,
         itemBuilder: (context, index) {
-          return SizedBox( width: double.infinity, child: list[index]);
+          return list[index];
         },
       ),
     );

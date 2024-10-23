@@ -1,5 +1,5 @@
 import 'package:app_rickandmorty/src/feature/character_info/character_info.dart';
-import 'package:app_rickandmorty/src/feature/characters_list/characters_list.dart';
+import 'package:app_rickandmorty/src/feature/characters_list/characters_list_page.dart';
 import 'package:app_rickandmorty/src/feature/launch_app/launch_app.dart';
 import 'package:flutter/material.dart';
 
@@ -91,7 +91,7 @@ class AppRoutes {
       case '/launch_app':
         return const LaunchApp();
       case '/characters_list':
-        return const CharactersList();
+        return const CharactersListPage();
       case '/character_description':
         return const CharacterInfo();
       default:
@@ -105,7 +105,7 @@ class AppLaunchRoute extends MaterialPageRoute {
 }
 
 class CharacterListRoute extends MaterialPageRoute {
-  CharacterListRoute() : super(builder: (context) => const CharactersList());
+  CharacterListRoute() : super(builder: (context) => const CharactersListPage());
 }
 class CharacterInfoRoute extends MaterialPageRoute {
   CharacterInfoRoute() : super(builder: (context) => const CharacterInfo());

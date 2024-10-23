@@ -1,6 +1,7 @@
 name: core_app
 description: "A new Flutter package project."
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -16,6 +17,11 @@ dependencies:
   rxdart: 0.28.0
   ## Database 
   shared_preferences: 2.3.2
+
+  models_app:
+    path: ../models_app
+  client_rickandmorty:
+    path: ../client_rickandmorty
 
 
 dev_dependencies:

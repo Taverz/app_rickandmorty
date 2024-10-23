@@ -65,7 +65,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 15),
                       CharacterCard.active(
-                        onTapLike: () {},
+                        liked: false,
+                        onTapLike: (_) {},
                         urlImage:
                             'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg',
                         textDescription: 'Lorem Picsum',
@@ -80,25 +81,29 @@ class HomeScreen extends StatelessWidget {
                           onRefreshList: () async {},
                           list: [
                             CharacterCard.active(
-                              onTapLike: () {},
+                              liked: false,
+                              onTapLike: (_) {},
                               urlImage:
                                   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg',
                               textDescription: 'Lorem Picsum',
                             ),
                             CharacterCard.active(
-                              onTapLike: () {},
+                              liked: true,
+                              onTapLike: (_) {},
                               urlImage:
                                   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg',
                               textDescription: 'Lorem Picsum',
                             ),
                             CharacterCard.active(
-                              onTapLike: () {},
+                              liked: true,
+                              onTapLike: (_) {},
                               urlImage:
                                   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg',
                               textDescription: 'Lorem Picsum',
                             ),
                             CharacterCard.active(
-                              onTapLike: () {},
+                              liked: false,
+                              onTapLike: (_) {},
                               urlImage:
                                   'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg',
                               textDescription: 'Lorem Picsum',
