@@ -7,13 +7,13 @@
 ## 🚀 Презентация рабочей функциональности:
 
 <!-- https://github.com/yveskalume/gif-app/blob/main/preview/preview1.png -->
-![Скриншот 1](https://github.com/yveskalume/gif-app/blob/main/preview/preview1.png) ![Скриншот 2](https://github.com/yveskalume/gif-app/blob/main/preview/preview1.png) ![Скриншот 3](https://github.com/yveskalume/gif-app/blob/main/preview/preview1.png)
 
-<!-- <p align="center">
+
+<p align="center">
     <img src="/preview/preview1.png" width="32%"/>
     <img src="/preview/preview2.png" width="32%"/>
     <img src="/preview/preview3.png" width="32%"/>
-</p> -->
+</p> 
 
 ## ⭐️ Функционал:
 
