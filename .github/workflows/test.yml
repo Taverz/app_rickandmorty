@@ -28,8 +28,24 @@ jobs:
       - run: flutter clean
       - run: rm -Rf pubspec.lock
       - run: flutter pub get
-      - run: flutter test
+      # - run: flutter test
       # - run: flutter analyze
+      ## Run tests in the root of the project
+      # - name: Run Root Tests
+      #   run: flutter test
+
+      #@ Run tests in each package
+      - name: Run Package Tests
+        run: |
+          for dir in packages/*; do
+            if [ -d "$dir" ] && [ -f "$dir/pubspec.yaml" ]; then
+              echo "Running tests in $dir";
+              cd $dir;
+              flutter pub get;
+              flutter test;
+              cd -;
+            fi
+          done
 
       # New upload artifact step if you want to keep artifacts
       - name: Upload test results
