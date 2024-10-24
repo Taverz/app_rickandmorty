@@ -87,35 +87,35 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
  
 ```plaintext
 lib                      
-├── src                  # Защита доступа к классам
-│   ├── common           # Общие функции и утилиты
+├── src                                          # Защита доступа к классам
+│   ├── common                                   # Общие функции и утилиты
 │   │   └── dependence
-│   │       ├── global_data.dart    # Глобальные данные
-│   │       └── service_locator.dart # Служба для управления зависимостями
-│   │   └── router      # Настройка маршрутизации
-│   │       ├── app_router.dart       # Основной маршрутизатор
-│   │       └── screen_launch_app.dart # Экран запуска приложения
-│   ├── feature          # Основные функции приложения
+│   │       ├── global_data.dart                 # Глобальные данные
+│   │       └── service_locator.dart             # Служба для управления зависимостями
+│   │   └── router                               # Настройка маршрутизации
+│   │       ├── app_router.dart                  # Основной маршрутизатор
+│   │       └── screen_launch_app.dart           # Экран запуска приложения
+│   ├── feature                                  # Основные функции приложения
 │   │   ├── characters
 │   │   ├── character_info
 │   │   ├    └── state_manager
-│   │   └── widgets      # Повторно используемые виджеты
-│   │       ├── characters_list.dart  # Виджет списка персонажей
-│   │       └── characters_list_page.dart # Страница со списком персонажей
-│   ├──  launch_app       # Запуск приложения
-│   │        └── launch_app.dart      # Основной файл для запуска приложения
-│   ├── app_init.dart          # Инициализация приложения / MaterialApp
-│   ├── main_demo.dart         # Демонстрация UI - UI-Kit
-│   └── main.dart              # Основная точка входа в приложение
+│   │   └── widgets                             # Повторно используемые виджеты
+│   │       ├── characters_list.dart            # Виджет списка персонажей
+│   │       └── characters_list_page.dart       # Страница со списком персонажей
+│   ├──  launch_app                             # Запуск приложения
+│   │        └── launch_app.dart                # Основной файл для запуска приложения
+│   ├── app_init.dart                           # Инициализация приложения / MaterialApp
+│   ├── main_demo.dart                          # Демонстрация UI - UI-Kit
+│   └── main.dart                               # Основная точка входа в приложение
 │
 │
 │
-packages                 # Папка с дополнительными пакетами
+packages                                        # Папка с дополнительными пакетами
 │
-├── ui_kit_app                # UI Widget from this project
-├── client_rickandmorty       # Пакет клиента для API Рика и Морти
-├── models_app                # Пакет для моделей данных
-├── core_app                  # Папка с логикой для взаимодействия с другими пакетами
+├── ui_kit_app                                  # UI Widget from this project
+├── client_rickandmorty                         # Пакет клиента для API Рика и Морти
+├── models_app                                  # Пакет для моделей данных
+├── core_app                                    # Папка с логикой для взаимодействия с другими пакетами
 
 ```
 ```plaintext
