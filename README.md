@@ -64,7 +64,18 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 ## 🔥 Описание и запуск проекта / документация:
 
 - Версия Flutter: `3.2.2`
-- Запуск тестов: `flutter test`
+- Запуск тестов:
+````dart
+for dir in packages/*; do
+  if [ -d "$dir" ] && [ -f "$dir/pubspec.yaml" ] && [ "$dir" != "packages/package_to_exclude" ]; then
+    echo "Running tests in $dir";
+    cd "$dir";
+    flutter pub get;
+    flutter test;
+    cd -;
+  fi
+done
+````
 - Запуск проекта: `flutter run`
 - [API Docs - Rick and Morty](https://rickandmortyapi.com/documentation)
 
