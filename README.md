@@ -1,6 +1,6 @@
 # app_rickandmorty
 
-2024 - Nikita - Big project Big problem
+2024 - Nikita 
 
 # Мобильное приложение Rick and Morty
 
