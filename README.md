@@ -67,7 +67,7 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 - Запуск тестов: `flutter test`
 
 #### Четкая и спланированная работа.
-##### GitFlow
+
 ##### Planning process
 
 ### Demo App из UI-Kit теста
