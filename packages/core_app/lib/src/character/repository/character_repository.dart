@@ -13,6 +13,11 @@ class CharacterRepository implements ICharacterRepository {
   }
 
   @override
+  Future<CharacterInfoModel> fetchCharacterID(int characterId) async {
+    return dataSource.fetchCharacterID(characterId);
+  }
+
+  @override
   Future<void> toggleLike({
     required int idCharacter,
     required bool liked,

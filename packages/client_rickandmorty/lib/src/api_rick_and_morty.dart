@@ -13,30 +13,78 @@ class ApiClientRickEndMorty implements IApiClient {
 
   @override
   Future<List<Character>> fetchCharacters() async {
-    try {
-      final response = await dio.get<Map<String, dynamic>>(_urlCharacter);
-      if (response.statusCode == 200) {
-        final data = response.data;
-        if (data == null) {
-          throw ApiException(errorMessage: 'Failed request to load characters');
+    return _handleDioException<List<Character>>(
+      () async {
+        final response = await dio.get<Map<String, dynamic>>(_urlCharacter);
+        if (response.statusCode == 200) {
+          final data = response.data;
+          if (data == null) {
+            throw ApiException(
+              errorMessage: 'Failed request to load characters',
+            );
+          }
+          return (data['results'] as List)
+              .map(
+                (character) => Character.fromMap(
+                  character as Map<String, dynamic>,
+                ),
+              )
+              .toList();
+        } else {
+          throw handleError(response.statusCode);
         }
-        return (data['results'] as List)
-            .map(
-              (character) => Character.fromMap(
-                character as Map<String, dynamic>,
-              ),
-            )
-            .toList();
-      } else {
-        throw ApiException(errorMessage: 'Failed request to load characters');
-      }
-    } on DioException catch (_) {
-      throw ApiException(errorMessage: 'Failed request to load characters');
-    } on ApiException catch (_) {
-      rethrow;
-    } catch (e) {
+      },
+      'Failed request to load characters',
+    );
+  }
+
+  @override
+  Future<CharacterInfoModel> fetchCharacterID(int idCharacter) async {
+    return _handleDioException<CharacterInfoModel>(
+      () async {
+        final response =
+            await dio.get<Map<String, dynamic>>('$_urlCharacter/$idCharacter');
+        if (response.statusCode == 200) {
+          final data = response.data;
+          if (data == null) {
+            throw ApiException(errorMessage: 'Failed load character id');
+          }
+          return CharacterInfoModel.fromMap(data);
+        } else {
+          throw handleError(response.statusCode);
+        }
+      },
+      'Failed load character id',
+    );
+  }
+
+  ApiException handleError(int? statusCode) {
+    switch (statusCode) {
+      case 404:
+        return ApiException(errorMessage: 'Character not found');
+      case 500:
+        return ApiException(errorMessage: 'Server error');
+      default:
+        return ApiException(errorMessage: 'Failed request to load characters');
+    }
+  }
+
+  Future<T> _handleDioException<T>(
+    Future<T> Function() request,
+    String errorMessage,
+  ) async {
+    try {
+      final result = await request();
+      return result;
+    } on DioException catch (e) {
       throw ApiException(
-        errorMessage: 'Unknown Error - Failed request to load characters',
+        errorMessage:
+            (e.response?.data as Map<String, dynamic>)['detail'] as String? ??
+                'Dio error occurred',
+      );
+    } catch (e, _) {
+      throw ApiException(
+        errorMessage: errorMessage,
       );
     }
   }

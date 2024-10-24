@@ -1,5 +1,6 @@
 import 'package:core_app/core_app.dart';
 import 'package:flutter/material.dart';
+import 'package:models_app/models_app.dart';
 import 'package:ui_kit_app/ui_kit_app.dart';
 
 void main() {
@@ -43,6 +44,28 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final listDescription = <DetailsData>[
+      DetailsData(
+        icon: Icons.abc,
+        title: 'title1',
+        value: 'value',
+      ),
+      DetailsData(
+        icon: Icons.abc,
+        title: 'title2',
+        value: 'value',
+      ),
+      DetailsData(
+        icon: Icons.abc,
+        title: 'title3',
+        value: 'value',
+      ),
+      DetailsData(
+        icon: Icons.abc,
+        title: 'title4',
+        value: 'value',
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Demo UI Kit'),
@@ -55,6 +78,25 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: DemoListView(
                 items: [
+                  DemoSection(
+                    child: [
+                      SizedBox(
+                        height: 400,
+                        child: CharacterInfoDescriptionList(
+                          dataList: listDescription,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 600,
+                        child: CharacterInfo.view(
+                          onTapLike: (_) {},
+                          urlImage: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+                          liked: false,
+                          listDataDescription: listDescription,
+                        ),
+                      ),
+                    ],
+                  ),
                   DemoSection(
                     child: [
                       CharacterCard.load(),

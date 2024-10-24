@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 class Character {
   final int id;
   final String name;
@@ -8,7 +7,7 @@ class Character {
   final String species;
   final String gender;
   final String image;
-  bool? liked; 
+  bool? liked;
 
   Character({
     required this.id,
@@ -17,10 +16,8 @@ class Character {
     required this.species,
     required this.gender,
     required this.image,
-    this.liked = false, 
+    this.liked = false,
   });
-
-
 
   Character copyWith({
     int? id,
@@ -68,7 +65,8 @@ class Character {
 
   String toJson() => json.encode(toMap());
 
-  factory Character.fromJson(String source) => Character.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Character.fromJson(String source) =>
+      Character.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -78,25 +76,24 @@ class Character {
   @override
   bool operator ==(covariant Character other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.status == status &&
-      other.species == species &&
-      other.gender == gender &&
-      other.image == image &&
-      other.liked == liked;
+
+    return other.id == id &&
+        other.name == name &&
+        other.status == status &&
+        other.species == species &&
+        other.gender == gender &&
+        other.image == image &&
+        other.liked == liked;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      name.hashCode ^
-      status.hashCode ^
-      species.hashCode ^
-      gender.hashCode ^
-      image.hashCode ^
-      liked.hashCode;
+        name.hashCode ^
+        status.hashCode ^
+        species.hashCode ^
+        gender.hashCode ^
+        image.hashCode ^
+        liked.hashCode;
   }
 }
