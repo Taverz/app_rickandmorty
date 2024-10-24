@@ -1,16 +1,14 @@
 import 'package:app_rickandmorty/src/common/dependence/global_data.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_kit_app/ui_kit_app.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:ui_kit_app/ui_kit_app.dart';
 
 class CharactersBlocContent extends StatelessWidget {
   const CharactersBlocContent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final store = 
-    //ServiceLocatorApp.exemplar(context)
-    GlobalData.charactersStore;
+    final store = GlobalData.charactersStore;
     store.fetchCharacters();
     return Observer(
       builder: (_) {
@@ -25,9 +23,6 @@ class CharactersBlocContent extends StatelessWidget {
               CharacterCard.load(),
             ],
           );
-          // return const Center(
-          //   child: CircularProgressIndicator(),
-          // );
         }
         return CharactersList(
           onRefreshList: () async {},
@@ -42,10 +37,8 @@ class CharactersBlocContent extends StatelessWidget {
                   textDescription: value.name,
                 ),
               )
-              .toList()
-          ,
+              .toList(),
         );
-
       },
     );
   }

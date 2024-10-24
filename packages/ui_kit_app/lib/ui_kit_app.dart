@@ -6,9 +6,3 @@ export 'src/feature/feature.dart';
 export 'src/theme/theme.dart';
 
 // export 'src/generated/assets.gen.dart';
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
