@@ -282,8 +282,8 @@ packages                                                               # Пап�
 
 #### Unit-тесты
 <p align="center">
-    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_table.png" width="50%"/>
-    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_command_line.png" width="50%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_table.png" width="40%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_command_line.png" width="40%"/>
 </p> 
 
 #### CI/CD - Github Action
