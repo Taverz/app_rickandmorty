@@ -173,13 +173,6 @@ packages                     # Папка с дополнительными па
 │   │    │    │   ├── theme                     # Темы и стили приложения
 │   │    │    │   └── utils                     # Утилиты и вспомогательные функции
 │   │    └── ui_kit_app.dart      # Правила доступа - Основной файл утилит
-│   └── test               # Тестовые файлы
-│         └── ├── .gitignore    # Файл для игнорирования Git
-│             ├── .metadata      # Метаданные проекта
-│             ├── analysis_options.yaml # Опции анализа
-│             ├── LICENSE        # Лицензия проекта
-│             ├── pubspec.yaml   # Файл конфигурации пакета
-│             └── .gitkeep       # Папка, которая должна сохраняться в репозитории
 │
 ├── client_rickandmorty       # Пакет клиента для API Рика и Морти
 │   └── lib                    
@@ -190,11 +183,6 @@ packages                     # Папка с дополнительными па
 │           │   ├── main_core_client.dart               # Основной клиент
 │           │   └── client_rickandmorty.dart            # Клиент Рика и Морти
 │           └── test           # Тесты для пакета
-│               ├── .gitignore
-│               ├── .metadata
-│               ├── analysis_options.yaml
-│               ├── LICENSE
-│               └── pubspec.yaml
 │
 ├──models_app               # Пакет для моделей данных
 │    └── lib                 
@@ -203,11 +191,6 @@ packages                     # Папка с дополнительными па
 │        │   ├── models        # Определение моделей
 │        │   └── models_app.dart # Основной файл для моделей
 │        └── test              # Тесты для моделей
-│            ├── .gitignore
-│            ├── .metadata
-│            ├── analysis_options.yaml
-│            ├── LICENSE
-│            └── pubspec.yaml
 ├── core_app                  # Папка с логикой для взаимодействия с другими пакетами
 │    └── lib                   
 │        ├── src               # Правила доступа
@@ -226,11 +209,6 @@ packages                     # Папка с дополнительными па
 │        │       ├── main_core_app.dart # Основной файл приложения
 │        │       └── core_app.dart     # Файл конфигурации
 │        └── test       # Тесты для приложения
-│            ├── .gitignore
-│            ├── .metadata
-│            ├── analysis_options.yaml
-│            ├── LICENSE
-│            └── pubspec.yaml
 
 ```
 <!-- 
