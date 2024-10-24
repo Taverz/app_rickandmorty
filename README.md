@@ -225,6 +225,16 @@ packages                                                               # Пап�
   - **models_app**
 - **test** -->
 
+<p align="center">
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/git_branch.png" width="32%"/>
+</p> 
+<p align="center">
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/pr_commit.png" width="32%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/pr_list.png" width="32%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/pr_description.png" width="32%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/release_git.png" width="32%"/>
+</p> 
+
 ### SplashScreen
 - Загрузка данных из локального хранилища
 
