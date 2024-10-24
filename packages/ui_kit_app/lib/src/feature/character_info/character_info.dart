@@ -7,39 +7,33 @@ import 'package:ui_kit_app/ui_kit_app.dart';
 
 class CharacterInfo {
   static Widget view({
-    required void Function(bool) onTapLike,
+    required void Function(bool) onTapBack,
     required String urlImage,
-    required bool liked,
     required List<DetailsData> listDataDescription,
     Key? key,
   }) =>
       _CharacterInfo(
         urlImage: urlImage,
-        onTapLike: onTapLike,
-        liked: liked,
+        onTapBack: onTapBack,
         listDataDescription: listDataDescription,
         key: key,
       );
 
   static Widget load({
-    required List<DetailsData> listDataDescription,
     Key? key,
   }) =>
       _CharacterInfoLoading(
-        listDataDescription: listDataDescription,
         key: key,
       );
 }
 
 class _CharacterInfo extends StatefulWidget {
   final String urlImage;
-  final bool liked;
-  final void Function(bool) onTapLike;
+  final void Function(bool) onTapBack;
   final List<DetailsData> listDataDescription;
   const _CharacterInfo({
     required this.urlImage,
-    required this.liked,
-    required this.onTapLike,
+    required this.onTapBack,
     required this.listDataDescription,
     super.key,
   });
@@ -50,7 +44,7 @@ class _CharacterInfo extends StatefulWidget {
 
 class _CharacterInfoState extends State<_CharacterInfo>
     with SingleTickerProviderStateMixin {
-  bool _like = false;
+  bool _changeBack = false;
 
   late final Debounced _debounced;
 
@@ -70,8 +64,8 @@ class _CharacterInfoState extends State<_CharacterInfo>
         curve: Curves.easeInOut,
       ),
     );
-    _debounced = Debounced(milliseconds: 200);
-    _like = widget.liked;
+    _debounced = Debounced(milliseconds: 500);
+    _changeBack = !_changeBack;
   }
 
   @override
@@ -84,8 +78,8 @@ class _CharacterInfoState extends State<_CharacterInfo>
   void onTapLike() {
     _debounced.run(() {
       setState(() {
-        _like = !_like;
-        widget.onTapLike(_like);
+        _changeBack = !_changeBack;
+        widget.onTapBack(_changeBack);
       });
       _controller.forward().then((_) {
         _controller.reverse();
@@ -123,7 +117,7 @@ class _CharacterInfoState extends State<_CharacterInfo>
                           scale: _scaleAnimation,
                           child: Padding(
                             padding: const EdgeInsets.all(5),
-                            child: _like
+                            child: _changeBack
                                 ? Assets.icons.arrowLeft.svg()
                                 : Assets.icons.arrowLeft.svg(),
                           ),
@@ -151,9 +145,7 @@ class _CharacterInfoState extends State<_CharacterInfo>
 }
 
 class _CharacterInfoLoading extends StatelessWidget {
-  final List<DetailsData> listDataDescription;
   const _CharacterInfoLoading({
-    required this.listDataDescription,
     super.key,
   });
 
@@ -175,7 +167,33 @@ class _CharacterInfoLoading extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: CharacterInfoDescriptionList(
-              dataList: listDataDescription,
+              dataList: [
+                DetailsData(
+                  status: null,
+                  title: 'title1',
+                  value: 'value',
+                ),
+                DetailsData(
+                  status: null,
+                  title: 'title1',
+                  value: 'value',
+                ),
+                DetailsData(
+                  status: null,
+                  title: 'title1',
+                  value: 'value',
+                ),
+                DetailsData(
+                  status: null,
+                  title: 'title1',
+                  value: 'value',
+                ),
+                DetailsData(
+                  status: null,
+                  title: 'title1',
+                  value: 'value',
+                ),
+              ],
             ),
           ),
         ),

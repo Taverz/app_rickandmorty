@@ -46,24 +46,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final listDescription = <DetailsData>[
       DetailsData(
-        icon: Icons.abc,
+        status: null,
         title: 'title1',
         value: 'value',
       ),
       DetailsData(
-        icon: Icons.abc,
-        title: 'title2',
-        value: 'value',
+        status: null,
+        title: 'Name',
+        value: 'store.characterInfo!.type',
       ),
       DetailsData(
-        icon: Icons.abc,
-        title: 'title3',
-        value: 'value',
+        status: Status.fromString('Alive'),
+        title: 'Status',
+        value: 'store.characterInfo!.status',
       ),
       DetailsData(
-        icon: Icons.abc,
-        title: 'title4',
-        value: 'value',
+        status: Species.fromString('Human'),
+        title: 'Species',
+        value: 'store.characterInfo!.species',
+      ),
+      DetailsData(
+        status: Gender.fromString('Female'),
+        title: 'Gender',
+        value: 'store.characterInfo!.gender',
       ),
     ];
     return Scaffold(
@@ -89,10 +94,10 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 600,
                         child: CharacterInfo.view(
-                          onTapLike: (_) {},
-                          urlImage: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-                          liked: false,
+                          urlImage:
+                              'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
                           listDataDescription: listDescription,
+                          onTapBack: (_) {},
                         ),
                       ),
                     ],

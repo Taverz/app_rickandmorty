@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:models_app/models_app.dart';
+import 'package:ui_kit_app/src/feature/character_info/convert_info_icon_in_widget.dart';
 import 'package:ui_kit_app/ui_kit_app.dart';
 
 class CharacterInfoDescriptionList extends StatelessWidget {
@@ -19,7 +20,7 @@ class CharacterInfoDescriptionList extends StatelessWidget {
             .map(
               (element) => _buildInfoTile(
                 context,
-                element.icon as IconData,
+                element.status,
                 element.title,
                 element.value,
               ),
@@ -31,34 +32,43 @@ class CharacterInfoDescriptionList extends StatelessWidget {
 
   Widget _buildInfoTile(
     BuildContext context,
-    IconData icon,
+    CharacterAttribute? iconType,
     String title,
     String value,
   ) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          CircleAvatar(
-            backgroundColor: context.color.irisBlue,
-            child: Icon(icon, color: context.color.whiteApp),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: context.color.grey,
-                  ),
-                ),
-                Text(value, style: const TextStyle(fontSize: 18)),
-              ],
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: context.color.whiteSmoke,
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: context.color.irisBlue,
+              child: CharacterAttributeIcon().getIcon(iconType),
             ),
-          ),
-        ],
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: context.color.grey,
+                    ),
+                  ),
+                  Text(
+                    value,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
