@@ -66,7 +66,6 @@ void main() {
 }
 
 
-
 void appRunnerMain({
   required FutureOr<List<dynamic>> Function(WidgetsBinding)? preInitialize,
   required Widget Function(BuildContext, AsyncSnapshot<List<dynamic>?>, Widget?)

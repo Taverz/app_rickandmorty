@@ -44,10 +44,10 @@ enum Gender implements CharacterAttribute {
   @override
   String get value => _value;
 
-  static Status fromString(String value) {
-    return Status.values.firstWhere(
+  static Gender fromString(String value) {
+    return Gender.values.firstWhere(
       (status) => status.value.toLowerCase() == value.toLowerCase(),
-      orElse: () => Status.unknown,
+      orElse: () => Gender.unknown,
     );
   }
 }
@@ -63,10 +63,10 @@ enum Species implements CharacterAttribute {
   @override
   String get value => _value;
 
-  static Status fromString(String value) {
-    return Status.values.firstWhere(
+  static Species fromString(String value) {
+    return Species.values.firstWhere(
       (status) => status.value.toLowerCase() == value.toLowerCase(),
-      orElse: () => Status.unknown,
+      orElse: () => Species.unknown,
     );
   }
 }

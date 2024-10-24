@@ -8,8 +8,14 @@ class CharacterInfoStore = _CharacterInfoStore with _$CharacterInfoStore;
 
 abstract class _CharacterInfoStore with Store {
   final DataCharacterInfo _dataCharacterInfo;
+  final Stream _streamIdCharacter;
+  int? _idCharacterSelected;
 
-  _CharacterInfoStore(this._dataCharacterInfo);
+  _CharacterInfoStore(this._dataCharacterInfo, this._streamIdCharacter) {
+    _streamIdCharacter.listen((value) {
+      _idCharacterSelected = value as int;
+    });
+  }
 
   @observable
   CharacterInfoModel? characterInfo;
@@ -18,10 +24,13 @@ abstract class _CharacterInfoStore with Store {
   bool isLoading = false;
 
   @action
-  Future<void> fetchCharacterInfo(int idCharacter) async {
+  Future<void> fetchCharacterInfo() async {
     isLoading = true;
-    final result =
-        await _dataCharacterInfo.getCharacterID(idCharacter: idCharacter);
+    final result = await _dataCharacterInfo.getCharacterID(
+      idCharacter: _idCharacterSelected!,
+    );
+    // ignore: inference_failure_on_instance_creation
+    await Future.delayed(const Duration(seconds: 1));
     characterInfo = CharacterInfoModel(
       id: result.id,
       imageUrl: result.image,

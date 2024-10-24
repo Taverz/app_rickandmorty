@@ -18,49 +18,53 @@ class _CharacterInfoPageState extends State<CharacterInfoPage> {
   void initState() {
     super.initState();
     store = GlobalData.characterInfoStore;
-    store.fetchCharacterInfo(1);
+    store.fetchCharacterInfo();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Observer(
-          builder: (_) {
-            if (store.isLoading) {
-              return CharacterInfo.load();
-            }
-            return CharacterInfo.view(
-              onTapBack: (_) {
+      body: Observer(
+        builder: (_) {
+          if (store.isLoading) {
+            return CharacterInfo.load(
+              onTapBack: () {
                 // ignore: inference_failure_on_function_invocation
-                GlobalData.appRouter.pop();
+                Navigator.pop(context);
               },
-              urlImage: store.characterInfo!.imageUrl,
-              listDataDescription: [
-                DetailsData(
-                  status: null,
-                  title: 'Name',
-                  value: store.characterInfo!.type,
-                ),
-                DetailsData(
-                  status: Status.fromString('Alive'),
-                  title: 'Status',
-                  value: store.characterInfo!.status,
-                ),
-                DetailsData(
-                  status: Species.fromString('Human'),
-                  title: 'Species',
-                  value: store.characterInfo!.species,
-                ),
-                DetailsData(
-                  status: Gender.fromString('Female'),
-                  title: 'Gender',
-                  value: store.characterInfo!.gender,
-                ),
-              ],
             );
-          },
-        ),
+          }
+          return CharacterInfo.view(
+            onTapBack: (_) {
+              // ignore: inference_failure_on_function_invocation
+              // GlobalData.appRouter.pop();
+              Navigator.pop(context);
+            },
+            urlImage: store.characterInfo!.imageUrl,
+            listDataDescription: [
+              DetailsData(
+                status: null,
+                title: 'Name',
+                value: store.characterInfo!.type,
+              ),
+              DetailsData(
+                status: Status.fromString(store.characterInfo!.status),
+                title: 'Status',
+                value: store.characterInfo!.status,
+              ),
+              DetailsData(
+                status: Species.fromString(store.characterInfo!.species),
+                title: 'Species',
+                value: store.characterInfo!.species,
+              ),
+              DetailsData(
+                status: Gender.fromString(store.characterInfo!.gender),
+                title: 'Gender',
+                value: store.characterInfo!.gender,
+              ),
+            ],
+          );
+        },
       ),
     );
   }

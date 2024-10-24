@@ -27,6 +27,8 @@ Widget _getGenderIcon(Gender gender) {
       return Assets.icons.genderUnknown.svg();
     case Gender.unknown:
       return Assets.icons.genderUnknown.svg();
+    default:
+      return Assets.icons.genderUnknown.svg();
   }
 }
 
@@ -37,6 +39,8 @@ Widget _getStatusIcon(Status status) {
     case Status.dead:
       return Assets.icons.statusDead.svg();
     case Status.unknown:
+      return Assets.icons.statusUnknown.svg();
+    default:
       return Assets.icons.statusUnknown.svg();
   }
 }
@@ -49,5 +53,7 @@ Widget _getSpeciesIcon(Species species) {
       return Assets.icons.speciesAlien.svg();
     case Species.unknown:
       return Assets.icons.speciesAlien.svg();
+    default:
+      return Assets.icons.speciesHuman.svg();
   }
 }

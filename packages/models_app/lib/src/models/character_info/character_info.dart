@@ -91,9 +91,9 @@ class CharacterInfoModel {
       origin: Origin.fromMap(map['origin'] as Map<String, dynamic>),
       location: Location.fromMap(map['location'] as Map<String, dynamic>),
       image: map['image'] as String,
-      episode: List<String>.from(map['episode'] as List<String>),
+      episode: List<String>.from(map['episode'] as List<dynamic>),
       url: map['url'] as String,
-      created: DateTime.fromMillisecondsSinceEpoch(map['created'] as int),
+      created: DateTime.parse(map['created'] as String),
     );
   }
 

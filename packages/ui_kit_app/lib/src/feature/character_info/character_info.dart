@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:models_app/models_app.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:ui_kit_app/src/feature/characters/character_image.dart';
 import 'package:ui_kit_app/src/generated/assets.gen.dart';
 import 'package:ui_kit_app/src/utils/debounce.dart';
@@ -20,9 +21,11 @@ class CharacterInfo {
       );
 
   static Widget load({
+    required void Function() onTapBack,
     Key? key,
   }) =>
       _CharacterInfoLoading(
+        onTapBack: onTapBack,
         key: key,
       );
 }
@@ -75,7 +78,7 @@ class _CharacterInfoState extends State<_CharacterInfo>
     super.dispose();
   }
 
-  void onTapLike() {
+  void onTap() {
     _debounced.run(() {
       setState(() {
         _changeBack = !_changeBack;
@@ -101,25 +104,27 @@ class _CharacterInfoState extends State<_CharacterInfo>
                   child: CharacterImage(urlImage: widget.urlImage),
                 ),
                 Positioned(
-                  top: 15,
-                  left: 15,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(999),
-                      color: context.color.whiteApp,
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
+                  top: 10,
+                  left: 20,
+                  child: SafeArea(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(999),
-                        onTap: onTapLike,
-                        child: ScaleTransition(
-                          scale: _scaleAnimation,
-                          child: Padding(
-                            padding: const EdgeInsets.all(5),
-                            child: _changeBack
-                                ? Assets.icons.arrowLeft.svg()
-                                : Assets.icons.arrowLeft.svg(),
+                        color: context.color.whiteApp,
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(999),
+                          onTap: onTap,
+                          child: ScaleTransition(
+                            scale: _scaleAnimation,
+                            child: Padding(
+                              padding: const EdgeInsets.all(5),
+                              child: _changeBack
+                                  ? Assets.icons.arrowLeft.svg()
+                                  : Assets.icons.arrowLeft.svg(),
+                            ),
                           ),
                         ),
                       ),
@@ -145,7 +150,9 @@ class _CharacterInfoState extends State<_CharacterInfo>
 }
 
 class _CharacterInfoLoading extends StatelessWidget {
+  final void Function() onTapBack;
   const _CharacterInfoLoading({
+    required this.onTapBack,
     super.key,
   });
 
@@ -154,46 +161,82 @@ class _CharacterInfoLoading extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 2,
-          child: ColoredBox(
-            color: context.color.grey,
-            child: const SizedBox(
-              height: 200,
-              width: double.infinity,
+          flex: 10,
+          child: SizedBox(
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Shimmer.fromColors(
+                    baseColor: Colors.grey.shade400,
+                    highlightColor: Colors.grey.shade600,
+                    child: ColoredBox(
+                      color: context.color.grey,
+                      child: const SizedBox(
+                        height: 100,
+                        width: double.infinity,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  left: 20,
+                  child: SafeArea(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(999),
+                        color: context.color.whiteApp,
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(999),
+                          onTap: onTapBack,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Assets.icons.arrowLeft.svg(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
         Expanded(
+          flex: 12,
           child: SizedBox(
             width: double.infinity,
-            child: CharacterInfoDescriptionList(
-              dataList: [
-                DetailsData(
-                  status: null,
-                  title: 'title1',
-                  value: 'value',
-                ),
-                DetailsData(
-                  status: null,
-                  title: 'title1',
-                  value: 'value',
-                ),
-                DetailsData(
-                  status: null,
-                  title: 'title1',
-                  value: 'value',
-                ),
-                DetailsData(
-                  status: null,
-                  title: 'title1',
-                  value: 'value',
-                ),
-                DetailsData(
-                  status: null,
-                  title: 'title1',
-                  value: 'value',
-                ),
-              ],
+            child: Shimmer.fromColors(
+              baseColor: Colors.grey.shade400,
+              highlightColor: Colors.grey.shade600,
+              child: const CharacterInfoDescriptionList(
+                dataList: [
+                  DetailsData(
+                    status: null,
+                    title: 'Text',
+                    value: 'Text',
+                  ),
+                  DetailsData(
+                    status: null,
+                    title: 'Text',
+                    value: 'Text',
+                  ),
+                  DetailsData(
+                    status: null,
+                    title: 'Text',
+                    value: 'Text',
+                  ),
+                  DetailsData(
+                    status: null,
+                    title: 'Text',
+                    value: 'Text',
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:app_rickandmorty/src/common/router/app_router.dart';
 import 'package:app_rickandmorty/src/feature/character_info/data/character_info.dart';
 import 'package:app_rickandmorty/src/feature/character_info/state_manager/character_info_store.dart';
@@ -19,9 +21,10 @@ class GlobalData {
     /// Characters
     final characterRepository = mainCoreApp.characterRepository;
     _dataCharactersList = DataCharactersList(characterRepository);
-    charactersStore = CharactersStore(_dataCharactersList);
+    final StreamController streamCont = StreamController();
+    charactersStore = CharactersStore(_dataCharactersList, streamCont.sink);
     /// Character Info
     final dataInfo = DataCharacterInfo(characterRepository);
-    characterInfoStore = CharacterInfoStore(dataInfo);
+    characterInfoStore = CharacterInfoStore(dataInfo, streamCont.stream);
   }
 }

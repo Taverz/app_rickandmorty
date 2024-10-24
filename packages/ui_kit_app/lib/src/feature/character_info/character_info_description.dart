@@ -18,12 +18,14 @@ class CharacterInfoDescriptionList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: dataList
             .map(
-              (element) => _buildInfoTile(
-                context,
-                element.status,
-                element.title,
-                element.value,
-              ),
+              (element) => element.value.isEmpty
+                  ? const SizedBox()
+                  : _buildInfoTile(
+                      context,
+                      element.status,
+                      element.title,
+                      element.value,
+                    ),
             )
             .toList(),
       ),

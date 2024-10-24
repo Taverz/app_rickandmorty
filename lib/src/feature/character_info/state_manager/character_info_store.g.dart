@@ -45,9 +45,9 @@ mixin _$CharacterInfoStore on _CharacterInfoStore, Store {
       AsyncAction('_CharacterInfoStore.fetchCharacterInfo', context: context);
 
   @override
-  Future<void> fetchCharacterInfo(int idCharacter) {
+  Future<void> fetchCharacterInfo() {
     return _$fetchCharacterInfoAsyncAction
-        .run(() => super.fetchCharacterInfo(idCharacter));
+        .run(() => super.fetchCharacterInfo());
   }
 
   @override

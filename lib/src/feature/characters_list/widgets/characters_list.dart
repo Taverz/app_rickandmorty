@@ -40,13 +40,20 @@ class _CharactersBlocContentState extends State<CharactersBlocContent> {
           onRefreshList: () async {},
           list: store.characters
               .map(
-                (value) => CharacterCard.active(
-                  liked: value.isLiked,
-                  onTapLike: (liked) {
-                    store.toggleLike(value.id, liked);
+                (value) => GestureDetector(
+                  onTap: () {
+                    store.openCard(value.id);
+                    // ignore: inference_failure_on_function_invocation
+                    GlobalData.appRouter.pushNamedReplacement('/character_description');
                   },
-                  urlImage: value.urlImage,
-                  textDescription: value.name,
+                  child: CharacterCard.active(
+                    liked: value.isLiked,
+                    onTapLike: (liked) {
+                      store.toggleLike(value.id, liked);
+                    },
+                    urlImage: value.urlImage,
+                    textDescription: value.name,
+                  ),
                 ),
               )
               .toList(),

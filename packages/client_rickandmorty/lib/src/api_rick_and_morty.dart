@@ -31,7 +31,7 @@ class ApiClientRickEndMorty implements IApiClient {
               )
               .toList();
         } else {
-          throw handleError(response.statusCode);
+          handleError(response.statusCode);
         }
       },
       'Failed request to load characters',
@@ -51,21 +51,21 @@ class ApiClientRickEndMorty implements IApiClient {
           }
           return CharacterInfoModel.fromMap(data);
         } else {
-          throw handleError(response.statusCode);
+          handleError(response.statusCode);
         }
       },
       'Failed load character id',
     );
   }
 
-  ApiException handleError(int? statusCode) {
+  Never handleError(int? statusCode) {
     switch (statusCode) {
       case 404:
-        return ApiException(errorMessage: 'Character not found');
+        throw ApiException(errorMessage: 'Character not found');
       case 500:
-        return ApiException(errorMessage: 'Server error');
+        throw ApiException(errorMessage: 'Server error');
       default:
-        return ApiException(errorMessage: 'Failed request to load characters');
+        throw ApiException(errorMessage: 'Failed request to load characters');
     }
   }
 
