@@ -58,6 +58,14 @@ mixin _$CharactersStore on _CharactersStore, Store {
         .run(() => super.toggleLike(idCharacter, liked));
   }
 
+  late final _$openCardAsyncAction =
+      AsyncAction('_CharactersStore.openCard', context: context);
+
+  @override
+  Future<void> openCard(int idCharacter) {
+    return _$openCardAsyncAction.run(() => super.openCard(idCharacter));
+  }
+
   @override
   String toString() {
     return '''

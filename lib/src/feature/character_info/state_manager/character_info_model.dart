@@ -1,99 +1,92 @@
 import 'dart:convert';
 
-class Character {
+class CharacterInfoModel {
   final int id;
-  final String name;
+  final String imageUrl;
+
   final String status;
   final String species;
+  final String type;
   final String gender;
-  final String image;
-  bool? liked;
 
-  Character({
+  CharacterInfoModel({
     required this.id,
-    required this.name,
+    required this.imageUrl,
     required this.status,
     required this.species,
+    required this.type,
     required this.gender,
-    required this.image,
-    this.liked = false,
   });
 
-  Character copyWith({
+  CharacterInfoModel copyWith({
     int? id,
-    String? name,
+    String? imageUrl,
     String? status,
     String? species,
+    String? type,
     String? gender,
-    String? image,
-    bool? liked,
   }) {
-    return Character(
+    return CharacterInfoModel(
       id: id ?? this.id,
-      name: name ?? this.name,
+      imageUrl: imageUrl ?? this.imageUrl,
       status: status ?? this.status,
       species: species ?? this.species,
+      type: type ?? this.type,
       gender: gender ?? this.gender,
-      image: image ?? this.image,
-      liked: liked ?? this.liked,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'name': name,
+      'imageUrl': imageUrl,
       'status': status,
       'species': species,
+      'type': type,
       'gender': gender,
-      'image': image,
-      'liked': liked,
     };
   }
 
-  factory Character.fromMap(Map<String, dynamic> map) {
-    return Character(
+  factory CharacterInfoModel.fromMap(Map<String, dynamic> map) {
+    return CharacterInfoModel(
       id: map['id'] as int,
-      name: map['name'] as String,
+      imageUrl: map['imageUrl'] as String,
       status: map['status'] as String,
       species: map['species'] as String,
+      type: map['type'] as String,
       gender: map['gender'] as String,
-      image: map['image'] as String,
-      liked: map['liked'] as bool?,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Character.fromJson(String source) =>
-      Character.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CharacterInfoModel.fromJson(String source) =>
+      CharacterInfoModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, status: $status, species: $species, gender: $gender, image: $image, liked: $liked)';
+    return 'CharacterInfoModel(id: $id, imageUrl: $imageUrl, status: $status, species: $species, type: $type, gender: $gender)';
   }
 
   @override
-  bool operator ==(covariant Character other) {
+  bool operator ==(covariant CharacterInfoModel other) {
     if (identical(this, other)) return true;
 
     return other.id == id &&
-        other.name == name &&
+        other.imageUrl == imageUrl &&
         other.status == status &&
         other.species == species &&
-        other.gender == gender &&
-        other.image == image &&
-        other.liked == liked;
+        other.type == type &&
+        other.gender == gender;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-        name.hashCode ^
+        imageUrl.hashCode ^
         status.hashCode ^
         species.hashCode ^
-        gender.hashCode ^
-        image.hashCode ^
-        liked.hashCode;
+        type.hashCode ^
+        gender.hashCode;
   }
 }

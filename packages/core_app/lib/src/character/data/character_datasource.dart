@@ -1,8 +1,7 @@
 import 'package:client_rickandmorty/client_rickandmorty.dart';
 import 'package:core_app/src/character/domain/character_datasource_interface.dart';
-import 'package:models_app/models_app.dart';
-
 import 'package:core_app/src/common/crud_character_interface.dart';
+import 'package:models_app/models_app.dart';
 
 class CharacterDataSource implements ICharacterDataSource {
   final IApiClient _apiService;
@@ -22,6 +21,11 @@ class CharacterDataSource implements ICharacterDataSource {
   }
 
   @override
+  Future<CharacterInfoModel> fetchCharacterID(int characterId) async {
+    return _apiService.fetchCharacterID(characterId);
+  }
+
+  @override
   Future<List<Character>> fetchLikedCharacters() async {
     return _databaseHelper.getLocalCharacters();
   }
@@ -30,6 +34,7 @@ class CharacterDataSource implements ICharacterDataSource {
   Future<void> removeCharacter(int characterId) async {
     await _databaseHelper.removeCharacter(characterId);
   }
+  
 
   @override
   Future<void> saveCharacter(Character character) async {

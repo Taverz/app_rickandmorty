@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:app_rickandmorty/src/feature/characters_list/data/data_characters_list.dart';
 import 'package:app_rickandmorty/src/feature/characters_list/state_manager/character_model_mobx.dart';
 import 'package:mobx/mobx.dart';
@@ -8,8 +10,9 @@ class CharactersStore = _CharactersStore with _$CharactersStore;
 
 abstract class _CharactersStore with Store {
   final DataCharactersList dataCharactersList;
+  final StreamSink sinkIDCharacter;
 
-  _CharactersStore(this.dataCharactersList);
+  _CharactersStore(this.dataCharactersList, this.sinkIDCharacter);
 
   @observable
   ObservableList<CharacterModelMobX> characters =
@@ -46,5 +49,12 @@ abstract class _CharactersStore with Store {
       characters[index].isLiked = liked;
       characters[index] = characters[index];
     }
+  }
+
+  @action
+  Future<void> openCard(
+    int idCharacter,
+  ) async {
+    sinkIDCharacter.add(idCharacter);
   }
 }

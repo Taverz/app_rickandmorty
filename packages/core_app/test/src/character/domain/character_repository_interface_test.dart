@@ -42,7 +42,7 @@ void main() {
       verify(characterRepository.getCharacters()).called(1);
     });
 
-    test('toggleLike changes the characte\'rs "liked" status', () async {
+    test('toggleLike changes the character\'s "liked" status', () async {
       const idCharacter = 1;
       const liked = true;
       when(
@@ -63,8 +63,7 @@ void main() {
       ).called(1);
     });
 
-    test('getLikedCharacters returns a list of liked characters',
-        () async {
+    test('getLikedCharacters returns a list of liked characters', () async {
       final likedCharacters = [
         Character(
           id: 1,
@@ -84,6 +83,39 @@ void main() {
 
       expect(result, likedCharacters);
       verify(characterRepository.getLikedCharacters()).called(1);
+    });
+
+    test('fetchCharacterID returns a single character by ID', () async {
+      const testCharacterId = 1;
+      final characterInfo = CharacterInfoModel(
+        id: 1,
+        name: 'Rick Sanchez',
+        status: 'Alive',
+        species: 'Human',
+        gender: 'Male',
+        origin: Origin(name: 'Earth (C-137)', url: 'url'),
+        location: Location(name: 'Citadel of Ricks', url: 'url'),
+        image: 'http://example.com/rick.jpg',
+        episode: ['episode1', 'episode2'],
+        url: 'url',
+        created: DateTime.parse('2017-11-04T18:48:46.250Z'),
+        type: '',
+      );
+
+      when(characterRepository.fetchCharacterID(testCharacterId))
+          .thenAnswer((_) async => characterInfo);
+
+      final result = await characterRepository.fetchCharacterID(
+        testCharacterId,
+      );
+
+      expect(result, isA<CharacterInfoModel>());
+      expect(result.name, 'Rick Sanchez');
+      expect(result.status, 'Alive');
+      expect(result.species, 'Human');
+      expect(result.origin.name, 'Earth (C-137)');
+      expect(result.location.name, 'Citadel of Ricks');
+      verify(characterRepository.fetchCharacterID(testCharacterId)).called(1);
     });
   });
 }
