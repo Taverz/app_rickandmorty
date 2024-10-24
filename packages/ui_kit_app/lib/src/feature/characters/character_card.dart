@@ -77,7 +77,7 @@ class _CharacterCardState extends State<_CharacterCard>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 400),
       vsync: this,
     );
     _scaleAnimation = Tween<double>(begin: 1, end: 1.8).animate(
@@ -99,12 +99,12 @@ class _CharacterCardState extends State<_CharacterCard>
 
   void onTapLike() {
     _debounced.run(() {
+      _controller.forward().then((_) {
+        _controller.reverse();
+      });
       setState(() {
         _like = !_like;
         widget.onTapLike(_like);
-      });
-      _controller.forward().then((_) {
-        _controller.reverse();
       });
     });
   }

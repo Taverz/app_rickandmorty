@@ -44,7 +44,7 @@ class _CharactersBlocContentState extends State<CharactersBlocContent> {
                   onTap: () {
                     store.openCard(value.id);
                     // ignore: inference_failure_on_function_invocation
-                    GlobalData.appRouter.pushNamedReplacement('/character_description');
+                    GlobalData.appRouter.pushNamed('/character_description');
                   },
                   child: CharacterCard.active(
                     liked: value.isLiked,
