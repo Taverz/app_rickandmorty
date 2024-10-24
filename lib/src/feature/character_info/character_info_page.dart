@@ -30,15 +30,14 @@ class _CharacterInfoPageState extends State<CharacterInfoPage> {
             return CharacterInfo.load(
               onTapBack: () {
                 // ignore: inference_failure_on_function_invocation
-                Navigator.pop(context);
+                GlobalData.appRouter.pop();
               },
             );
           }
           return CharacterInfo.view(
             onTapBack: (_) {
               // ignore: inference_failure_on_function_invocation
-              // GlobalData.appRouter.pop();
-              Navigator.pop(context);
+              GlobalData.appRouter.pop();
             },
             urlImage: store.characterInfo!.imageUrl,
             listDataDescription: [

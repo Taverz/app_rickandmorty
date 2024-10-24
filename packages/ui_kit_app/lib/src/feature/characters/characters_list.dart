@@ -12,6 +12,11 @@ class CharactersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (list.isEmpty) {
+      return const Center(
+        child: Text('Empty'),
+      );
+    }
     return RefreshWidget(
       onRefresh: onRefreshList,
       child: GridView.builder(
