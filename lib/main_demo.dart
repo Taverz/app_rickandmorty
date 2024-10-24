@@ -1,5 +1,6 @@
 import 'package:core_app/core_app.dart';
 import 'package:flutter/material.dart';
+import 'package:models_app/models_app.dart';
 import 'package:ui_kit_app/ui_kit_app.dart';
 
 void main() {
@@ -43,6 +44,33 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final listDescription = <DetailsData>[
+      DetailsData(
+        status: null,
+        title: 'title1',
+        value: 'value',
+      ),
+      DetailsData(
+        status: null,
+        title: 'Name',
+        value: 'store.characterInfo!.type',
+      ),
+      DetailsData(
+        status: Status.fromString('Alive'),
+        title: 'Status',
+        value: 'store.characterInfo!.status',
+      ),
+      DetailsData(
+        status: Species.fromString('Human'),
+        title: 'Species',
+        value: 'store.characterInfo!.species',
+      ),
+      DetailsData(
+        status: Gender.fromString('Female'),
+        title: 'Gender',
+        value: 'store.characterInfo!.gender',
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Demo UI Kit'),
@@ -55,6 +83,25 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: DemoListView(
                 items: [
+                  DemoSection(
+                    child: [
+                      SizedBox(
+                        height: 400,
+                        child: CharacterInfoDescriptionList(
+                          dataList: listDescription,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 600,
+                        child: CharacterInfo.view(
+                          urlImage:
+                              'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+                          listDataDescription: listDescription,
+                          onTapBack: (_) {},
+                        ),
+                      ),
+                    ],
+                  ),
                   DemoSection(
                     child: [
                       CharacterCard.load(),

@@ -1,6 +1,7 @@
 name: ui_kit_app
 description: "A new Flutter package project."
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -13,6 +14,8 @@ dependencies:
   cached_network_image: 3.4.1
   custom_refresh_indicator: 4.0.1
   flutter_svg: 2.0.10+1
+  models_app:
+    path: ../models_app
 
 dev_dependencies:
   flutter_test:
