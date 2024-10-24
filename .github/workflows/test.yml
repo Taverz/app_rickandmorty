@@ -34,10 +34,34 @@ jobs:
       # - name: Run Root Tests
       #   run: flutter test
 
-      #@ Run tests in each package
+      ## Run tests in each package
+      # - name: Run Package Tests
+      #   run: |
+      #     for dir in packages/*; do
+      #       if [ -d "$dir" ] && [ -f "$dir/pubspec.yaml" ]; then
+      #         echo "Running tests in $dir";
+      #         cd $dir;
+      #         flutter pub get;
+      #         flutter test;
+      #         cd -;
+      #       fi
+      #     done
       - name: Run Package Tests
         run: |
           for dir in packages/*; do
+            if [ -d "$dir" ] && [ -f "$dir/pubspec.yaml" ] && [ "$dir" != "packages/ui_kit_app" ]; then
+              echo "Running tests in $dir";
+              cd $dir;
+              flutter pub get;
+              flutter test;
+              cd -;
+            fi
+          done
+
+      ## Run tests in specific packages
+      - name: Run Tests in Specific Packages
+        run: |
+          for dir in packages/models_app packages/core_app packages/client_rickandmorty; do
             if [ -d "$dir" ] && [ -f "$dir/pubspec.yaml" ]; then
               echo "Running tests in $dir";
               cd $dir;
