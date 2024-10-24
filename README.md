@@ -281,6 +281,10 @@ packages                                                               # Пап�
 #### Фейковый / Мок API
 
 #### Unit-тесты
+<p align="center">
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_table.png" width="50%"/>
+    <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/test_complete_command_line.png" width="50%"/>
+</p> 
 
 #### CI/CD - Github Action
 
