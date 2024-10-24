@@ -74,10 +74,6 @@ Url: https://rickandmortyapi.com/api/character/{characterId}
 
 ### Навигация - простая
 
-### Git Flow
-- Git Branch
-- Git Work
-
 ## Структура приложения:
 
 - Что есть в проекте: 
@@ -224,6 +220,10 @@ packages                                                               # Пап�
   - **client_rickandmorty**
   - **models_app**
 - **test** -->
+
+## Git Flow
+- Git Branch
+- Git Work
 
 <p align="center">
     <img src="https://github.com/Taverz/app_rickandmorty/blob/main/presentation/git_branch.png" width="32%"/>
