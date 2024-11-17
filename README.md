@@ -1,7 +1,9 @@
 # app_rickandmorty
 
 2024 - Nikita 
-
+<!--
+[![Total Downloads](http://poser.pugx.org/phpunit/phpunit/downloads)](https://packagist.org/packages/phpunit/phpunit)
+ -->
 # Мобильное приложение Rick and Morty
 
 ## 🚀 Презентация рабочей функциональности:
