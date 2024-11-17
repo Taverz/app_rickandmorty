@@ -4,6 +4,13 @@
 <!--
 [![Total Downloads](http://poser.pugx.org/phpunit/phpunit/downloads)](https://packagist.org/packages/phpunit/phpunit)
  -->
+![Views Badge](https://img.shields.io/badge/views-4-blue)
+![License](https://img.shields.io/github/license/Taverz/app_rickandmorty)
+![Stars](https://img.shields.io/github/stars/Taverz/app_rickandmorty?style=social)
+![CI Status](https://img.shields.io/github/workflow/status/Taverz/app_rickandmorty/CI)
+
+
+ 
 # Мобильное приложение Rick and Morty
 
 ## 🚀 Презентация рабочей функциональности:
